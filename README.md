@@ -1,30 +1,30 @@
-# Parsing HTML With jsoup
+# jsoup を使った HTML のパース
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com/) 
+[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/) 
 
-This guide explains how to parse HTML with `jsoup` in Java. You will learn how to use DOM methods, handle pagination, and optimize your parsing workflow.
+このガイドでは、Java で `jsoup` を使って HTML をパースする方法を説明します。DOM メソッドの使い方、ページネーションの処理、そしてパースのワークフローを最適化する方法を学べます。
 
-- [Using DOM Methods With Jsoup](#using-dom-methods-with-jsoup)
+- [Jsoup で DOM メソッドを使う](#using-dom-methods-with-jsoup)
   - [getElementById](#getelementbyid)
   - [getElementsByTag](#getelementsbytag)
   - [getElementsByClass](#getelementsbyclass)
   - [getElementsByAttribute](#getelementsbyattribute)
-- [Advanced Techniques](#advanced-techniques)
-  - [CSS Selectors](#css-selectors)
-  - [Handling Pagination](#handling-pagination)
-- [Putting Everything Together](#putting-everything-together)
+- [高度なテクニック](#advanced-techniques)
+  - [CSS セレクター](#css-selectors)
+  - [ページネーションの処理](#handling-pagination)
+- [すべてをまとめる](#putting-everything-together)
 
 ## Getting Started
 
-This tutorial assumes using [Maven](https://maven.apache.org/) for dependency management.
+このチュートリアルでは、依存関係の管理に [Maven](https://maven.apache.org/) を使用することを前提とします。
 
-Once you’ve got Maven installed, create a new Java project called `jsoup-scraper`:
+Maven をインストールしたら、`jsoup-scraper` という新しい Java プロジェクトを作成します。
 
 ```bash
 mvn archetype:generate -DgroupId=com.example -DartifactId=jsoup-scraper -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-To add relevant dependencies, replace the code in `pom.xml` with the code below:
+関連する依存関係を追加するには、`pom.xml` のコードを以下のコードに置き換えます。
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -56,7 +56,7 @@ To add relevant dependencies, replace the code in `pom.xml` with the code below:
 </project>
 ```
 
-Now paste the below code into `App.java`:
+次に、以下のコードを `App.java` に貼り付けます。
 
 ```java
 package com.example;
@@ -93,21 +93,21 @@ public class App {
 }
 ```
 
-- `Jsoup.connect("https://books.toscrape.com").get()`: This line fetches the page and returns a `Document` object that you can manipulate.
-- `doc.title()` returns the title in the HTML document, in this case: `All products | Books to Scrape - Sandbox`.
+- `Jsoup.connect("https://books.toscrape.com").get()`: この行はページを取得し、操作可能な `Document` オブジェクトを返します。
+- `doc.title()` は HTML ドキュメント内の title を返します。この場合は `All products | Books to Scrape - Sandbox` です。
 
-## Using DOM Methods With Jsoup
+## Jsoup で DOM メソッドを使う
 
-`jsoup` contains a variety of methods for finding elements in the DOM(Document Object Model). We can use any of the following to find page elements easily.
+`jsoup` には、DOM（Document Object Model）内の要素を見つけるためのさまざまなメソッドが含まれています。以下のいずれかを使って、ページ要素を簡単に見つけられます。
 
-- `getElementById()`: Find an element using its `id`.
-- `getElementsByClass()`: Find all elements using their CSS class.
-- `getElementsByTag()`: Find all elements using their HTML tag.
-- `getElementsByAttribute()`: Find all elements containing a certain attribute.
+- `getElementById()`: `id` を使って要素を見つけます。
+- `getElementsByClass()`: CSS クラスを使ってすべての要素を見つけます。
+- `getElementsByTag()`: HTML タグを使ってすべての要素を見つけます。
+- `getElementsByAttribute()`: 特定の属性を含むすべての要素を見つけます。
 
 ### getElementById
 
-On the website we are scraping, the sidebar contains a `div` with an `id` of `promotions_left`:
+スクレイピング対象の Web サイトでは、サイドバーに `id` が `promotions_left` の `div` があります。
 
 ![Inspect the sidebar](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-the-sidebar.png)
 
@@ -118,7 +118,7 @@ Element sidebar = doc.getElementById("promotions_left");
 System.out.println("Sidebar: " + sidebar);
 ```
 
-This code outputs the HTML element you see in the Inspect page.
+このコードは、Inspect 画面で見える HTML 要素を出力します。
 
 ```
 Sidebar: <div id="promotions_left">
@@ -127,11 +127,11 @@ Sidebar: <div id="promotions_left">
 
 ### getElementsByTag
 
-`getElementsByTag()` allows to find all elements on the page with a certain tag. On this page, where each book is contained in a unique `article` tag:
+`getElementsByTag()` を使うと、特定のタグを持つページ内のすべての要素を見つけられます。このページでは、各書籍が固有の `article` タグに含まれています。
 
 ![Inspect books](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-books.png)
 
-The code below returns an array of books that will provide the foundation for the rest of the data.
+以下のコードは書籍の配列を返し、以降のデータ取得の基礎になります。
 
 ```java
 //get by tag
@@ -140,11 +140,11 @@ Elements books = doc.getElementsByTag("article");
 
 ### getElementsByClass
 
-Let's inspect the price of a book. The class is `price_color`:
+書籍の価格を確認してみましょう。クラスは `price_color` です。
 
 ![Inspect price](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-price.png)
 
-The below code snippet finds all elements of the `price_color` class and prints the text of the first one using `.first().text()`:
+以下のコードスニペットは、`price_color` クラスのすべての要素を見つけ、`.first().text()` を使って最初の要素のテキストを出力します。
 
 ```java
 System.out.println("Price: " + book.getElementsByClass("price_color").first().text());
@@ -152,7 +152,7 @@ System.out.println("Price: " + book.getElementsByClass("price_color").first().te
 
 ### getElementsByAttribute
 
-Let's use `getElementsByAttribute("href")` to find all elements with an `href` attribute:
+`getElementsByAttribute("href")` を使って、`href` 属性を持つすべての要素を見つけましょう。
 
 ```java
 //get by attribute
@@ -160,21 +160,21 @@ Elements hrefs = book.getElementsByAttribute("href");
 System.out.println("Link: https://books.toscrape.com/" + hrefs.first().attr("href"));
 ```
 
-## Advanced Techniques
+## 高度なテクニック
 
-### CSS Selectors
+### CSS セレクター
 
-To find elements by multiple criteria, let's pass CSS selectors to the `select()` method. This will return an array of all objects matching the selector. In the next code snippet, we use `li[class='next']` to find all `li` items with the `next` class:
+複数条件で要素を見つけるには、`select()` メソッドに CSS セレクターを渡します。これにより、セレクターに一致するすべてのオブジェクトの配列が返されます。次のコードスニペットでは、`li[class='next']` を使って `next` クラスを持つすべての `li` アイテムを見つけます。
 
 ```java
 Elements nextPage = doc.select("li[class='next']");
 ```
 
-### Handling Pagination
+### ページネーションの処理
 
-To handle pagination, we start by using `nextPage.first()` to obtain the first element from the array. We then call `getElementsByAttribute("href").attr("href")` on that element to extract its `href` value.
+ページネーションを処理するには、まず `nextPage.first()` を使って配列から最初の要素を取得します。次に、その要素に対して `getElementsByAttribute("href").attr("href")` を呼び出し、`href` の値を抽出します。
 
-Since after page 2, the word `catalogue` is removed from the links,  we add `href` back if does not contain `catalogue`. After that, we combine this updated link with our base URL to obtain the URL for the next page.
+2 ページ目以降ではリンクから `catalogue` という単語が削除されるため、`catalogue` を含まない場合は `href` を追加して戻します。その後、この更新されたリンクをベース URL と結合して、次ページの URL を取得します。
 
 ```java
 if (!nextPage.isEmpty()) {
@@ -187,9 +187,9 @@ if (!nextPage.isEmpty()) {
 }
 ```
 
-## Putting Everything Together
+## すべてをまとめる
 
-Here is the final Java code. To scrape more than one page, simply change the `1` in `while (pageCount <= 1)`. E.g., if you want to scrape 4 pages, use `while (pageCount <= 4)`.
+以下が最終的な Java コードです。複数ページをスクレイピングするには、`while (pageCount <= 1)` の `1` を変更するだけです。例えば 4 ページをスクレイピングする場合は、`while (pageCount <= 4)` を使用します。
 
 ```java
 import org.jsoup.Jsoup;
@@ -253,19 +253,19 @@ public class App {
 }
 ```
 
-Compile the code:
+コードをコンパイルします。
 
 ```bash
 mvn package
 ```
 
-Now you can run it:
+次に実行できます。
 
 ```bash
 mvn exec:java -Dexec.mainClass="com.example.App"
 ```
 
-Here is the output from the first page.
+以下は 1 ページ目の出力です。
 
 ```
 ---------------------PAGE 1--------------------------
@@ -377,10 +377,10 @@ Total pages scraped: 1
 
 ## Conclusion
 
-Scraping dynamic sites like product listings, news, or research data can be challenging. [Bright Data’s tools](https://brightdata.com/products) help you scale your efforts:
+商品一覧、ニュース、研究データのような動的サイトのスクレイピングは難しい場合があります。[Bright Data のツール](https://brightdata.jp/products) は、取り組みのスケールに役立ちます。
 
-- **[Residential Proxies](https://brightdata.com/proxy-types/residential-proxies):** Bypass IP bans and geo-restrictions.
-- **[Scraping Browser](https://brightdata.com/products/scraping-browser):** Easily handle JavaScript-heavy sites.
-- **[Ready-to-Use Datasets](https://brightdata.com/products/datasets):** Get structured data without scraping.
+- **[Residential Proxies](https://brightdata.jp/proxy-types/residential-proxies):** IP BAN やジオ制限を回避します。
+- **[Scraping Browser](https://brightdata.jp/products/scraping-browser):** JavaScript を多用するサイトを簡単に処理できます。
+- **[Ready-to-Use Datasets](https://brightdata.jp/products/datasets):** スクレイピングせずに構造化データを取得できます。
 
-Combine these with jsoup for efficient, low-risk data extraction. Try them for free today!
+これらを jsoup と組み合わせることで、効率的かつ低リスクなデータ抽出が可能です。今すぐ無料でお試しください。
