@@ -1,6 +1,6 @@
 # jsoup を使った HTML のパース
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/) 
+[![Promo](https://github.com/bright-jp/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/) 
 
 このガイドでは、Java で `jsoup` を使って HTML をパースする方法を説明します。DOM メソッドの使い方、ページネーションの処理、そしてパースのワークフローを最適化する方法を学べます。
 
@@ -109,7 +109,7 @@ public class App {
 
 スクレイピング対象の Web サイトでは、サイドバーに `id` が `promotions_left` の `div` があります。
 
-![Inspect the sidebar](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-the-sidebar.png)
+![Inspect the sidebar](https://github.com/bright-jp/jsoup-html-parsing/blob/main/Images/Inspect-the-sidebar.png)
 
 ```java
 //get by Id
@@ -129,7 +129,7 @@ Sidebar: <div id="promotions_left">
 
 `getElementsByTag()` を使うと、特定のタグを持つページ内のすべての要素を見つけられます。このページでは、各書籍が固有の `article` タグに含まれています。
 
-![Inspect books](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-books.png)
+![Inspect books](https://github.com/bright-jp/jsoup-html-parsing/blob/main/Images/Inspect-books.png)
 
 以下のコードは書籍の配列を返し、以降のデータ取得の基礎になります。
 
@@ -142,7 +142,7 @@ Elements books = doc.getElementsByTag("article");
 
 書籍の価格を確認してみましょう。クラスは `price_color` です。
 
-![Inspect price](https://github.com/luminati-io/jsoup-html-parsing/blob/main/Images/Inspect-price.png)
+![Inspect price](https://github.com/bright-jp/jsoup-html-parsing/blob/main/Images/Inspect-price.png)
 
 以下のコードスニペットは、`price_color` クラスのすべての要素を見つけ、`.first().text()` を使って最初の要素のテキストを出力します。
 
